@@ -4,4 +4,23 @@ ano. Dizer também se o aluno está APROVADO ou REPROVADO e, em caso negativo, q
 aluno obter o mínimo para ser aprovado (que é 60 pontos). Você deve criar uma classe Aluno para resolver este
 problema.*/
 
+using exercicio03_fixacao;
 using System.Globalization;
+
+Aluno aluno = new Aluno();
+Console.Write("Nome do Aluno: ");
+aluno.Nome = Console.ReadLine();
+Console.WriteLine("Digite as 3 notas:");
+aluno.Nota1 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+aluno.Nota2 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+aluno.Nota3 = double.Parse(Console.ReadLine(), CultureInfo.InvariantCulture);
+Console.WriteLine("Nota Final = " + aluno.NotaFinal().ToString("F2", CultureInfo.InvariantCulture));
+if (aluno.Aprovado())
+{
+    Console.WriteLine("APROVADO");
+}
+else
+{
+    Console.WriteLine("REPROVADO");
+    Console.WriteLine("FALTARAM " + aluno.PontosFaltantes() + " PONTOS");
+}
